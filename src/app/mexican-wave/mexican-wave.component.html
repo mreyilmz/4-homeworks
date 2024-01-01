@@ -1,0 +1,9 @@
+<div class="container">
+  <h1 class="bg-warning">HW 1 Mexican Wave</h1>
+  <button class="btn btn-success" (click)="startWave(div)">
+    Meksika Dalgası
+  </button>
+  <div class="container" #div>
+    <span *ngFor="let char of textArray">{{ char }}</span>
+  </div>
+</div>

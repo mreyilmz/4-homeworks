@@ -1,0 +1,99 @@
+<div class="container">
+  <h1 class="bg-warning">HW 3 Basket</h1>
+  <div class="d-flex justify-content-between">
+    <div class="card" style="width: 18rem" *ngFor="let item of basketItems">
+      <img
+        src="http://goktugturan.com/blog/wp-content/uploads/2017/06/product_backlog.png"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ item.name }}</h5>
+        <div>
+          <span class="card-text"> Price: {{ item.price }} </span>
+        </div>
+        <span>Stock: {{ item.stock }}</span>
+        <br />
+        <button
+          (click)="addToBasket(item); calculations()"
+          class="btn btn-primary"
+        >
+          Add to Basket
+        </button>
+      </div>
+    </div>
+  </div>
+  <button
+    type="button"
+    class="btn btn-success"
+    data-bs-toggle="modal"
+    data-bs-target="#staticBackdrop"
+  >
+    Go to Basket
+  </button>
+</div>
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="staticBackdrop"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Product Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Stock</th>
+              <th scope="col">Quantity</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of basketListItems">
+              <th scope="row">1</th>
+              <td>{{ item.name }}</td>
+              <td>{{ item.price }}</td>
+              <td>{{ item.stock }}</td>
+              <td>{{ item.quantity }}</td>
+              <td>
+                <button (click)="increment(item.id); calculations()">+</button>
+              </td>
+              <td>
+                <button (click)="decrement(item.id); calculations()">-</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Total Price: {{ totalPrice }}</p>
+        <p>Total Product Quantity: {{ totalAmount }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>

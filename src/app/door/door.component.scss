@@ -1,0 +1,40 @@
+.container > div {
+  height: 600px;
+  position: relative;
+}
+
+div.door {
+  z-index: 2;
+  background-color: yellow;
+  height: 200px;
+  width: 120px;
+  transform-origin: left;
+  transition: all 0.5s;
+  border-radius: 10px;
+}
+
+.back-door {
+  z-index: 1;
+  position: absolute;
+  background-image: url("../../assets/manzara.jpeg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  height: 200px;
+  width: 120px;
+}
+
+.open {
+  transform: perspective(900px) translateZ(0px) translateX(0px) translateY(0px)
+    rotateY(-105deg);
+}
+
+.buton {
+  padding: 30px 60px;
+  font-size: 30px;
+  font-weight: 600;
+  background-color: black;
+  color: white;
+  border-radius: 30px;
+}
